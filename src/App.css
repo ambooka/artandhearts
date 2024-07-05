@@ -7,21 +7,56 @@
   pointer-events: none;
 }
 
+@import url('https://fonts.googleapis.com/css?family=Muli:300,400,700');
+
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color: #000;
+  height: 200vh;
+  font-family: 'Muli', sans-serif;
+}
+.text {
+  display: flex;
+  align-items: center;
+  top: 0;
+  left: 0;
+  transform: translateX(0) translateY(0);
+  list-style: none;
+  border-bottom: 0;
+  border-bottom: 0;
+  padding: 0;
+  margin: 0;
+}
+
+.text li {
+  display: inline-block;
+  float: left;
+  font-weight: 700;
+  font-size: 1em;
+  color: #000000;
+  opacity: 1;
+  transition: all 0.5s ease-in-out;
+  max-width: 2em;
+}
+.text.hidden li.spaced {
+  padding-left: 0;
+}
+.text li.spaced {
+  padding-left: 0.5em;
+}
+
+.text.hidden li.ghost {
+  opacity: 0;
+  max-width: 0;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
 .App-link {
@@ -35,4 +70,337 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.sticky {
+  background-color: #1b1a2ea9 !important;
+  transition: all 0.3s ease-out 0s !important;
+  box-shadow: 0px 10px 10px 0px rgba(137, 120, 226, 0.17) !important;
+  backdrop-filter: blur(15px) !important;
+}
+
+.navbar {
+  background-color: #f1f3f4a9 !important;
+  position: fixed !important;
+  transition: all 0.3s ease-out 0s !important;
+  padding: 2rem 2rem !important;
+  font-size: 1.2rem !important;
+}
+
+.toolbar {
+  background-color: #f1f3f4a9 !important;
+  color: black;
+}
+
+.centered-content {
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  text-align: center;
+}
+
+.page-section {
+  position: relative;
+  z-index: -1;
+  background-position: top center;
+  background-repeat: no-repeat;
+  padding-bottom: 30px !important;
+  padding-top: 50px !important;
+}
+
+.navbar-nav .nav-item {
+  position: relative;
+  margin-left: 20px;
+}
+
+.navbar-nav .nav-item a::after {
+  content: '';
+  position: relative;
+  display: block;
+  height: 5px;
+  width: 0;
+  border-radius: 16px;
+  background: #e74c3c;
+  bottom: 1px;
+  left: 0;
+  z-index: -1;
+  transition: all 0.3s ease-out 0s;
+}
+
+.navbar-nav .nav-item a:hover::after {
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .responsive-container {
+    flex-direction: column;
+  }
+}
+
+.wave {
+  animation-name: wave-animation; /* Refers to the name of your @keyframes element below */
+  animation-duration: 2.1s; /* Change to speed up or slow down */
+  animation-iteration-count: infinite; /* Never stop waving :) */
+  transform-origin: 70% 70%; /* Pivot around the bottom-left palm */
+  display: inline-block;
+}
+
+@keyframes wave-animation {
+  0% {
+    transform: rotate(0deg);
+  }
+  10% {
+    transform: rotate(14deg);
+  } /* The following five values can be played with to make the waving more or less extreme */
+  20% {
+    transform: rotate(-8deg);
+  }
+  30% {
+    transform: rotate(14deg);
+  }
+  40% {
+    transform: rotate(-4deg);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
+  60% {
+    transform: rotate(0deg);
+  } /* Reset for the last half to pause */
+  100% {
+    transform: rotate(0deg);
+  }
+}
+.reveal {
+  padding: 2em;
+  font:
+    normal 40px/50px Montserrat,
+    sans-serif;
+  color: #999;
+}
+
+.reveal p {
+  height: 50px;
+  float: left;
+  margin-right: 0.3em;
+}
+
+.reveal b {
+  float: left;
+  overflow: hidden;
+  position: relative;
+  height: 50px;
+  top: 0px;
+}
+
+.reveal .innerReveal {
+  display: inline-block;
+  color: #e74c3c;
+  position: relative;
+  white-space: nowrap;
+  top: 0;
+  left: 0;
+  -webkit-animation: move 5s infinite 1s;
+  -moz-animation: move 5s infinite 1s;
+  -ms-animation: move 5s infinite 1s;
+  -o-animation: move 5s infinite 1s;
+  animation: move 5s infinite 1s;
+}
+
+@keyframes move {
+  0% {
+    top: 0px;
+  }
+  20% {
+    top: -50px;
+  }
+  40% {
+    top: -100px;
+  }
+  60% {
+    top: -150px;
+  }
+  80% {
+    top: -200px;
+  }
+}
+
+@-webkit-keyframes move {
+  0% {
+    top: 0px;
+  }
+  20% {
+    top: -50px;
+  }
+  40% {
+    top: -100px;
+  }
+  60% {
+    top: -150px;
+  }
+  80% {
+    top: -200px;
+  }
+}
+
+@-moz-keyframes move {
+  0% {
+    top: 0px;
+  }
+  20% {
+    top: -50px;
+  }
+  40% {
+    top: -100px;
+  }
+  60% {
+    top: -150px;
+  }
+  80% {
+    top: -200px;
+  }
+}
+
+@-o-keyframes move {
+  0% {
+    top: 0px;
+  }
+  20% {
+    top: -50px;
+  }
+  40% {
+    top: -100px;
+  }
+  60% {
+    top: -150px;
+  }
+  80% {
+    top: -200px;
+  }
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+  .reveal {
+    padding: 1em;
+    font:
+      normal 20px/30px Montserrat,
+      sans-serif;
+  }
+
+  .reveal p {
+    height: 30px;
+  }
+
+  .reveal b {
+    height: 30px;
+  }
+
+  .reveal .innerReveal {
+    -webkit-animation: move-mobile 5s infinite 1s;
+    -moz-animation: move-mobile 5s infinite 1s;
+    -ms-animation: move-mobile 5s infinite 1s;
+    -o-animation: move-mobile 5s infinite 1s;
+    animation: move-mobile 5s infinite 1s;
+  }
+
+  @keyframes move-mobile {
+    0% {
+      top: 0px;
+    }
+    20% {
+      top: -30px;
+    }
+    40% {
+      top: -60px;
+    }
+    60% {
+      top: -90px;
+    }
+    80% {
+      top: -120px;
+    }
+  }
+
+  @-webkit-keyframes move-mobile {
+    0% {
+      top: 0px;
+    }
+    20% {
+      top: -30px;
+    }
+    40% {
+      top: -60px;
+    }
+    60% {
+      top: -90px;
+    }
+    80% {
+      top: -120px;
+    }
+  }
+
+  @-moz-keyframes move-mobile {
+    0% {
+      top: 0px;
+    }
+    20% {
+      top: -30px;
+    }
+    40% {
+      top: -60px;
+    }
+    60% {
+      top: -90px;
+    }
+    80% {
+      top: -120px;
+    }
+  }
+
+  @-o-keyframes move-mobile {
+    0% {
+      top: 0px;
+    }
+    20% {
+      top: -30px;
+    }
+    40% {
+      top: -60px;
+    }
+    60% {
+      top: -90px;
+    }
+    80% {
+      top: -120px;
+    }
+  }
+}
+
+.profile-card {
+  text-align: center;
+  margin: 10px;
+  padding: 10px;
+}
+
+.circular-image {
+  width: 100px; /* Adjust size as needed */
+  height: 100px; /* Adjust size as needed */
+  border-radius: 50%; /* This creates the circular shape */
+  border: 2px solid #ddd; /* Optional: adds a border around the image */
+  object-fit: cover; /* Ensures the image covers the space without distortion */
+}
+
+.profile-info {
+  margin-top: 10px;
+}
+
+.position {
+  color: purple; /* Example color */
+  font-weight: bold;
+}
+
+.name {
+  display: block; /* Makes the name appear on a new line */
+  margin-top: 5px;
 }
