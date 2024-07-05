@@ -1,4 +1,3 @@
-// src/AppView.js
 import React, { useState, useEffect } from 'react';
 import { Modal, Container } from 'react-bootstrap';
 import { getDocs, collection } from 'firebase/firestore';
@@ -10,6 +9,7 @@ import Grid from '@mui/material/Unstable_Grid2';
 import Typography from '@mui/material/Typography';
 
 import { db } from 'src/firebase/firebase';
+import { products } from 'src/_mock/products';
 
 import Iconify from 'src/components/iconify';
 
@@ -17,6 +17,7 @@ import PostCard from '../post-card';
 import PostSort from '../post-sort';
 import PostSearch from '../post-search';
 import NewPostForm from '../new-post-form';
+import ProductCarousel from '../product-carousel';
 
 const styles = {
   gradientBackground: {
@@ -64,7 +65,6 @@ export default function AppView() {
       try {
         const postsCollection = collection(db, 'posts');
         const postsSnapshot = await getDocs(postsCollection);
-        // eslint-disable-next-line no-shadow
         const postsList = postsSnapshot.docs.map((doc) => doc.data());
         setPosts(postsList);
       } catch (error) {
@@ -74,82 +74,86 @@ export default function AppView() {
 
     fetchPosts();
   }, []);
+
   return (
-    <section>
-      <div>
-        <Container fluid className="page-section" id="home">
+    <section className="page-section">
+      <Grid container spacing={3}>
+
+        <Grid item xs={12} md={6}>
           <Card style={styles.gradientBackground}>
-            <Grid direction="row">
-              <Grid item xs={12} md={8}>
-                <Stack>
+            <Stack>
+              <div>
+                <div className="reveal">
                   <div>
-                    <div className="reveal">
-                      <div>
-                        <h1 className="heading-name">
-                          Welcome to <br />
-                          <strong className="main-name">Art and Hearts</strong>
-                        </h1>
-                        <b>
-                          <div className="innerReveal">
-                            Changing lives
-                            <br />
-                            Restoring hope
-                            <br />
-                            Igniting potential
-                            <br />
-                            Empowering comunities
-                            <br />
-                            Leading the way
-                          </div>
-                        </b>
+                    <h1 className="heading-name">
+                      Welcome to <br />
+                      <strong className="main-name">Art and Hearts</strong>
+                    </h1>
+                    <b>
+                      <div className="innerReveal">
+                        Changing lives
+                        <br />
+                        Restoring hope
+                        <br />
+                        Igniting potential
+                        <br />
+                        Empowering communities
+                        <br />
+                        Leading the way
                       </div>
-                    </div>
+                    </b>
                   </div>
+                </div>
+              </div>
 
-                  <Typography
-                    sx={{
-                      textAlign: 'center',
-                      fontSize: '1.2rem',
-                      lineHeight: '1.5',
-                      color: '#666',
-                    }}
-                  >
-                    Join us in making a difference! Discover ways to contribute, participate in
-                    events, and explore how your support helps the community.
-                  </Typography>
+              <Typography
+                sx={{
+                  textAlign: 'center',
+                  fontSize: '1.2rem',
+                  lineHeight: '1.5',
+                  color: '#666',
+                }}
+              >
+                Join us in making a difference! Discover ways to contribute, participate in
+                events, and explore how your support helps the community.
+              </Typography>
 
-                  <Stack
-                    justifyContent="flex-end"
-                    direction="row"
-                    alignItems="right"
-                    spacing={2}
-                    sx={{ mt: 2 }}
-                  >
-                    <Button
-                      variant="contained"
-                      sx={{ mt: 1, bgcolor: '#e74c3c' }}
-                      endIcon={<Iconify icon="la:donate" />}
-                    >
-                      Donate Now
-                    </Button>
+              <Stack
+                justifyContent="flex-end"
+                direction="row"
+                alignItems="right"
+                spacing={2}
+                sx={{ mt: 2 }}
+              >
+                <Button
+                  variant="contained"
+                  sx={{ mt: 1, bgcolor: '#e74c3c' }}
+                  endIcon={<Iconify icon="la:donate" />}
+                >
+                  Donate Now
+                </Button>
 
-                    <Button
-                      variant="contained"
-                      sx={{ mt: 1, bgcolor: '#e74c3c' }}
-                      endIcon={<Iconify icon="ei:external-link" />}
-                    >
-                      Learn More
-                    </Button>
-                  </Stack>
-                </Stack>
-              </Grid>
-            </Grid>
+                <Button
+                  variant="contained"
+                  sx={{ mt: 1, bgcolor: '#e74c3c' }}
+                  endIcon={<Iconify icon="ei:external-link" />}
+                >
+                  Learn More
+                </Button>
+              </Stack>
+            </Stack>
           </Card>
-        </Container>
-      </div>
 
+        </Grid>
+        <Grid item xs={12} md={6} spacing>
+          <Typography variant="h4">Featured Products</Typography>
+
+          <ProductCarousel products={products} />
+        </Grid>
+
+      </Grid>
       <Container>
-        <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
+        <Stack paddingTop="20px" direction="row" alignItems="center" justifyContent="space-between" mb={5}>
           <Typography variant="h4">Art</Typography>
 
           <Button

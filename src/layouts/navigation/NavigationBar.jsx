@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { Nav, Navbar } from 'react-bootstrap';
 import { React, useState, useEffect } from 'react';
-import { MdOutlinePermMedia } from 'react-icons/md';
+import { MdOutlineShoppingCart } from "react-icons/md";
 import { AiOutlineHome, AiOutlineUser, AiOutlineFundProjectionScreen } from 'react-icons/ai';
 
 import Box from '@mui/material/Box';
@@ -160,9 +160,9 @@ export default function NavigationBar({ children }) {
             />
             <BottomNavigationAction
               component={Link}
-              label="Media"
-              to="/media"
-              icon={<Iconify icon="material-symbols:perm-media-outline" />}
+              label="Shop"
+              to="/products"
+              icon={<Iconify icon="mdi:shopping-cart-outline" />}
             />
             <BottomNavigationAction
               component={Link}
@@ -212,8 +212,8 @@ export default function NavigationBar({ children }) {
                     </Nav.Link>
                   </Nav.Item>
                   <Nav.Item>
-                    <Nav.Link as={Link} to="/media" onClick={() => updateExpanded(false)}>
-                      <MdOutlinePermMedia style={{ marginBottom: '2px' }} /> Media
+                    <Nav.Link as={Link} to="/products" onClick={() => updateExpanded(false)}>
+                      <MdOutlineShoppingCart style={{ marginBottom: '2px' }} /> Shop
                     </Nav.Link>
                   </Nav.Item>
                   <Nav.Item>

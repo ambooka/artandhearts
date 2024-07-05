@@ -100,12 +100,7 @@ body {
 }
 
 .page-section {
-  position: relative;
-  z-index: -1;
-  background-position: top center;
-  background-repeat: no-repeat;
   padding-bottom: 30px !important;
-  padding-top: 50px !important;
 }
 
 .navbar-nav .nav-item {

@@ -8,7 +8,7 @@ export const ProjectsPage = lazy(() => import('src/pages/projects'));
 export const LoginPage = lazy(() => import('src/pages/login'));
 export const Page404 = lazy(() => import('src/pages/page-not-found'));
 export const AboutPage = lazy(() => import('src/pages/about'));
-export const MediaPage = lazy(() => import('src/pages/media'));
+export const ProductsPage = lazy(() => import('src/pages/products'));
 // ----------------------------------------------------------------------
 
 export default function Router() {
@@ -25,7 +25,7 @@ export default function Router() {
         { element: <IndexPage />, index: true },
         { path: 'projects', element: <ProjectsPage /> },
         { path: 'about', element: <AboutPage /> },
-        { path: 'media', element: <MediaPage /> },
+        { path: 'products', element: <ProductsPage /> },
       ],
     },
     {

@@ -1,17 +1,17 @@
 import { Helmet } from 'react-helmet-async';
 
-import Media from 'src/sections/media/Media';
+import { ProductsView } from 'src/sections/products/view';
 
 // ----------------------------------------------------------------------
 
-export default function MediaPage() {
+export default function ProductsPage() {
   return (
     <>
       <Helmet>
-        <title> Bridge Of Hope </title>
+        <title> Art | Art & Hearts </title>
       </Helmet>
 
-      <Media />
+      <ProductsView />
     </>
   );
 }
